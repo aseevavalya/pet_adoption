@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Животные — Панель</title>
+
+  <link rel="stylesheet" href="css/dashboard-base.css">
+  <link rel="stylesheet" href="css/dashboard-layout.css">
+  <link rel="stylesheet" href="css/dashboard-components.css">
+</head>
+<body class="dashboard-body" data-dashboard-page="dashboard-animals">
+  <div class="dashboard-shell">
+    <div id="dashboardSidebarMount"></div>
+
+    <main class="dashboard-main">
+      <div id="dashboardTopbarMount"></div>
+
+      <section class="dashboard-content">
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-toolbar">
+            <div>
+              <h2 class="dashboard-section-title">Все животные</h2>
+            </div>
+
+            <a class="dashboard-btn" href="animal-form.html">Добавить животное</a>
+          </div>
+        </article>
+
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-filters">
+            <input
+              class="dashboard-input dashboard-input--inline"
+              id="animalsSearch"
+              type="text"
+              placeholder="Поиск по имени, городу, описанию"
+            >
+
+            <select class="dashboard-select" id="animalsStatusFilter">
+              <option value="">Все статусы</option>
+              <option value="available">Ищет дом</option>
+              <option value="reserved">Забронирован</option>
+              <option value="adopted">Пристроен</option>
+              <option value="hidden">Скрыт</option>
+            </select>
+          </div>
+        </article>
+
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-list" id="animalsList">
+            <p class="dashboard-empty">Загружаем животных...</p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard-api.js"></script>
+  <script src="js/dashboard-auth.js"></script>
+  <script>
+    requireDashboardAuth();
+  </script>
+  <script src="js/dashboard-main.js"></script>
+  <script src="js/dashboard-animals.js"></script>
+</body>
+</html>

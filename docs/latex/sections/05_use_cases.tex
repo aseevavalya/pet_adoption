@@ -1,0 +1,24 @@
+\section{Use Cases}
+
+\subsection{Use Case Diagram}
+\begin{figure}[H]
+  \centering
+  %\includegraphics[width=0.85\textwidth]{diagrams/use_case_diagram.pdf}
+  \caption{Use Case Diagram}
+\end{figure}
+
+\subsection{Use Case Specification: Submit Adoption Request}
+
+\begin{itemize}
+  \item \textbf{Actor:} Guest User
+  \item \textbf{Goal:} Submit a request to adopt an animal
+  \item \textbf{Precondition:} Animal exists and is available
+  \item \textbf{Main Flow:}
+    \begin{enumerate}
+      \item User opens animal detail page
+      \item User fills in adoption form
+      \item System validates input
+      \item Request is stored
+    \end{enumerate}
+  \item \textbf{Postcondition:} Adoption request is created
+\end{itemize}

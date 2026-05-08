@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог животных — Животные ищут дом</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/catalog.css">
+</head>
+<body class="page-catalog">
+  <div id="site-nav"></div>
+
+  <main class="catalog-page page-shell">
+    <!-- Заголовок каталога -->
+    <section class="catalog-hero page-hero-block">
+      <div class="container">
+        <span class="section-kicker">каталог</span>
+        <h1 class="section-title">Найди того, кто ждёт именно тебя</h1>
+        <p class="section-lead">Здесь собраны животные, которым нужен дом, забота и человек рядом.</p>
+      </div>
+    </section>
+
+    <!-- Фильтры -->
+    <section class="catalog-filters">
+      <div class="container">
+        <div class="filters-panel">
+          <select id="filterSex" aria-label="Фильтр по полу">
+            <option value="">Пол: любой</option>
+            <option value="мальчик">Мальчик</option>
+            <option value="девочка">Девочка</option>
+          </select>
+
+          <select id="filterAge" aria-label="Фильтр по возрасту">
+            <option value="">Возраст: любой</option>
+            <option value="котёнок">Котёнок</option>
+            <option value="молодой">Молодой</option>
+            <option value="взрослый">Взрослый</option>
+          </select>
+
+          <select id="filterColor" aria-label="Фильтр по окрасу">
+            <option value="">Цвет: любой</option>
+            <option value="рыжий">Рыжий</option>
+            <option value="чёрный">Чёрный</option>
+            <option value="белый">Белый</option>
+            <option value="трёхцветная">Трёхцветная</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Колода животных -->
+    <section class="catalog-box-section">
+      <div class="container">
+        <div class="deck-scene" id="deckScene">
+          <div class="deck-slider">
+            <button class="deck-arrow deck-arrow-left" id="prevAnimal" type="button" aria-label="Предыдущее животное">←</button>
+
+            <div class="deck-viewport">
+              <div class="deck-track" id="animalList"></div>
+            </div>
+
+            <button class="deck-arrow deck-arrow-right" id="nextAnimal" type="button" aria-label="Следующее животное">→</button>
+          </div>
+
+          <div class="deck-actions">
+            <button class="btn btn-primary" id="openDetails" type="button">Подробнее</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Развёрнутая карточка -->
+    <section class="animal-details-section">
+      <div class="container">
+        <div id="animalDetails"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/include-nav.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,719 @@
+/* ===== Общие переиспользуемые компоненты админки ===== */
+/* Этот файл содержит только общие элементы интерфейса:
+   карточки, кнопки, заголовки секций, поля форм, списки, карточки-строки,
+   бейджи и универсальные иконки. */
+
+/* ===== Карточки и текстовые блоки ===== */
+.dashboard-card {
+  background: var(--surface-cream);
+  border: 1px solid var(--line);
+  border-radius: var(--dash-radius-xl);
+  box-shadow:
+    var(--dash-card-shadow-main),
+    var(--dash-card-shadow-soft);
+}
+
+.dashboard-card--padded {
+  padding: var(--dash-gap-lg);
+}
+
+.dashboard-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--dash-gap-lg);
+}
+
+.dashboard-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  min-height: 34px;
+  font-size: var(--type-illustration-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+.dashboard-section-lead {
+  margin: 12px 0 0;
+  font-size: var(--type-button-size);
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.dashboard-empty {
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+/* ===== Панель фильтров ===== */
+/* Общий шаблон для страниц списков:
+  поиск слева, селекты справа; на мобильнике — столбиком. */
+
+.dashboard-filters {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Поле поиска не растягивается бесконечно,
+  а занимает аккуратную рабочую ширину. */
+.dashboard-input--inline {
+  flex: 1 1 360px;
+  min-width: 260px;
+}
+
+/* Селекты компактнее поля поиска и подстраиваются под содержимое. */
+.dashboard-filters .dashboard-select {
+  flex: 0 1 220px;
+  min-width: 170px;
+}
+
+/* Если на странице фильтров несколько селектов подряд,
+  они всё равно держатся аккуратно и не разъезжаются. */
+.dashboard-filters .dashboard-select:last-child {
+  min-width: 160px;
+}
+
+.dashboard-topbar__title--single {
+  margin: 0;
+}
+
+/* ===== Статистические карточки ===== */
+.dashboard-stat {
+  padding: 18px;
+}
+
+.dashboard-stat--link {
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.dashboard-stat--link:hover {
+  transform: translateY(-2px);
+  border-color: var(--line);
+}
+
+.dashboard-stat__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+}
+
+.dashboard-stat__label {
+  margin-bottom: 12px;
+  color: var(--text-soft);
+  font-size: var(--type-button-size);
+  line-height: 1.4;
+}
+
+.dashboard-stat__value {
+  font-size: var(--nav-bottom-icon-size);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+.dashboard-stat__meta {
+  margin-top: 12px;
+  color: var(--text-soft);
+  font-size: var(--type-button-size);
+  line-height: 1.45;
+}
+
+.dashboard-stat__icon--heart {
+  color: var(--warm-accent);
+  font-size: calc(var(--nav-bottom-icon-size) + 6px);
+}
+
+/* ===== Кнопки ===== */
+.dashboard-btn,
+.dashboard-ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--type-button-size);
+  line-height: 1.2;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.dashboard-btn:hover,
+.dashboard-ghost-btn:hover {
+  transform: translateY(-1px);
+}
+
+.dashboard-btn {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.dashboard-ghost-btn {
+  border: 1px solid var(--line);
+  background: var(--surface-cream);
+  color: var(--text);
+}
+
+.dashboard-back-link {
+  gap: 8px;
+}
+
+.dashboard-back-link::before {
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  height: 1em;
+  flex: 0 0 auto;
+  background: currentColor;
+  -webkit-mask: url("../../img/arrow.svg") center / contain no-repeat;
+  mask: url("../../img/arrow.svg") center / contain no-repeat;
+  transform: rotate(180deg);
+}
+
+.dashboard-ghost-btn--small {
+  align-self: start;
+  margin-top: 2px;
+}
+
+.dashboard-mini-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--type-illustration-badge-size);
+  line-height: 1.2;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.dashboard-mini-btn:hover {
+  transform: translateY(-1px);
+  background: var(--surface-cream);
+  border-color: var(--line-strong);
+  box-shadow: var(--dash-card-shadow-hover);
+}
+
+.dashboard-mini-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--dash-card-shadow-press);
+}
+
+/* ===== Общие поля форм ===== */
+.dashboard-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-field > span {
+  font-size: var(--type-illustration-badge-size);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.dashboard-input,
+.dashboard-select,
+.dashboard-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-white-90);
+  padding: 14px 16px;
+  font: inherit;
+  font-size: var(--type-button-size);
+  line-height: 1.45;
+  color: var(--text);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.dashboard-input::placeholder,
+.dashboard-textarea::placeholder {
+  color: var(--muted);
+}
+
+.dashboard-input:hover,
+.dashboard-select:hover,
+.dashboard-textarea:hover {
+  border-color: var(--line-strong);
+  background: var(--white);
+}
+
+.dashboard-input:focus,
+.dashboard-select:focus,
+.dashboard-textarea:focus {
+  border-color: var(--accent);
+  background: var(--white);
+  box-shadow: 0 0 0 4px var(--panel-soft-18);
+}
+
+.dashboard-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.dashboard-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 42px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--warm-accent) 50%),
+    linear-gradient(135deg, var(--warm-accent) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% - 3px),
+    calc(100% - 14px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.dashboard-input[type="file"] {
+  padding: 12px 14px;
+  background: var(--white);
+}
+
+.dashboard-input[type="file"]::file-selector-button {
+  border: none;
+  background: var(--bg-strong);
+  color: var(--accent);
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-right: 12px;
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.2s ease;
+}
+
+.dashboard-input[type="file"]::file-selector-button:hover {
+  background: var(--panel-tint);
+}
+
+/* ===== Списки и карточки-строки ===== */
+.dashboard-list {
+  display: grid;
+  gap: 14px;
+}
+
+.dashboard-row-card {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel-soft);
+  box-shadow:
+    var(--dash-row-shadow),
+    var(--dash-card-shadow-inset);
+}
+
+.dashboard-row-card__image,
+.dashboard-row-card__image-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+}
+
+.dashboard-row-card__image {
+  object-fit: cover;
+  background: var(--bg-strong);
+}
+
+.dashboard-row-card__image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-strong);
+  flex-shrink: 0;
+}
+
+.dashboard-row-card__image-wrap::before {
+  content: "🐾";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--nav-bottom-icon-size) + 6px);
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dashboard-row-card__image-wrap.is-fallback::before {
+  opacity: 1;
+}
+
+.dashboard-row-card__image-wrap.is-fallback .dashboard-row-card__image {
+  opacity: 0;
+}
+
+.dashboard-row-card__title {
+  margin-bottom: 6px;
+  font-size: var(--type-illustration-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.25;
+}
+
+.dashboard-row-card__meta,
+.dashboard-row-card__desc {
+  color: var(--text-soft);
+  line-height: 1.6;
+  font-size: var(--type-button-size);
+}
+
+.dashboard-row-card__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* ===== Компактный вариант карточки-строки ===== */
+/* Используется там, где нужен более плотный список:
+   например, на главной и на странице "Все животные". */
+
+.dashboard-row-card--compact {
+  grid-template-columns: 72px 1fr auto;
+  padding: 12px;
+}
+
+.dashboard-row-card--compact.dashboard-row-card--request {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.dashboard-row-card--compact .dashboard-row-card__image,
+.dashboard-row-card--compact .dashboard-row-card__image-wrap {
+  width: 72px;
+  height: 72px;
+}
+
+.dashboard-row-card--compact .dashboard-row-card__title {
+  font-size: var(--type-body-size);
+  line-height: 1.3;
+}
+
+.dashboard-row-card--compact .dashboard-row-card__meta,
+.dashboard-row-card--compact .dashboard-row-card__desc {
+  font-size: var(--type-kicker-size);
+  line-height: 1.5;
+}
+
+/* ===== Верхние панели страниц ===== */
+/* Общий шаблон для карточек-заголовков:
+   слева заголовок и пояснение, справа основная кнопка действия. */
+
+.dashboard-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 16px;
+}
+
+.dashboard-toolbar > div:first-child {
+  min-width: 0;
+}
+
+.dashboard-toolbar .dashboard-btn,
+.dashboard-toolbar .dashboard-ghost-btn {
+  align-self: start;
+  justify-self: end;
+}
+
+/* ===== Бейджи ===== */
+.dashboard-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.dashboard-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--panel-tint);
+  font-size: var(--type-pill-size);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.dashboard-badge--success {
+  background: var(--panel-soft-16);
+  color: var(--accent);
+}
+
+.dashboard-badge--warning {
+  background: var(--olive-tint);
+  color: var(--warm-accent);
+}
+
+.dashboard-badge--danger {
+  background: var(--panel);
+  color: var(--status-error);
+}
+
+/* ===== Иконки ===== */
+.dashboard-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.dashboard-icon--catalog {
+  color: var(--warm-accent);
+  width: 24px;
+  height: 24px;
+  transform: rotate(16deg);
+  transform-origin: center;
+}
+
+.dashboard-icon--animals-title {
+  color: var(--accent);
+  width: 22px;
+  height: 22px;
+  transform: rotate(16deg);
+  transform-origin: center;
+}
+
+.dashboard-icon-file {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.dashboard-icon-file--journal {
+  width: 26px;
+  height: 26px;
+}
+
+.dashboard-icon-file--letter {
+  width: 24px;
+  height: 24px;
+}
+
+.dashboard-title-icon,
+.dashboard-title-icon-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.dashboard-title-icon {
+  color: var(--accent);
+}
+
+.dashboard-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-cream);
+  color: var(--text);
+  cursor: pointer;
+  font-size: var(--nav-bottom-icon-size);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.dashboard-icon-btn:hover {
+  transform: translateY(-1px);
+}
+
+.dashboard-icon-btn--logout {
+  width: auto;
+  height: auto;
+  padding: 4px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.dashboard-icon-btn--logout img {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* ===== Адаптация общих компонентов ===== */
+@media (max-width: 980px) {
+  .dashboard-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-section-title {
+    font-size: var(--type-illustration-badge-size);
+    line-height: 1.2;
+  }
+
+  .dashboard-section-lead {
+    margin: 4px 0 0;
+    font-size: var(--type-kicker-size);
+    line-height: 1.5;
+  }
+
+  .dashboard-ghost-btn--small {
+    min-height: 32px;
+    padding: 6px 10px;
+    font-size: var(--nav-link-size);
+  }
+
+  /* Фильтры */
+
+  .dashboard-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .dashboard-input--inline,
+  .dashboard-filters .dashboard-select {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+
+  /* Toolbar */
+
+  .dashboard-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .dashboard-toolbar .dashboard-btn,
+  .dashboard-toolbar .dashboard-ghost-btn {
+    min-height: 34px;
+    padding: 8px 12px;
+    font-size: var(--type-pill-size);
+    white-space: nowrap;
+  }
+
+  /* Базовая карточка на мобильнике остаётся трёхколоночной.
+     Это важно для главной страницы, где кнопка должна остаться справа. */
+  .dashboard-row-card,
+  .dashboard-row-card--compact {
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 12px;
+    align-items: start;
+  }
+
+  .dashboard-row-card--request,
+  .dashboard-row-card--compact.dashboard-row-card--request {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .dashboard-row-card__image,
+  .dashboard-row-card__image-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+  }
+
+  .dashboard-row-card__image-wrap {
+    align-self: start;
+    justify-self: start;
+  }
+
+  .dashboard-row-card > div:nth-child(2) {
+    min-width: 0;
+  }
+
+  .dashboard-row-card__title {
+    margin-bottom: 4px;
+    font-size: var(--type-button-size);
+    line-height: 1.25;
+  }
+
+  .dashboard-row-card__meta,
+  .dashboard-row-card__desc {
+    font-size: var(--type-pill-size);
+    line-height: 1.4;
+  }
+
+  .dashboard-badges {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .dashboard-badge {
+    min-height: 28px;
+    padding: 6px 10px;
+    font-size: var(--type-pill-size);
+  }
+
+  /* По умолчанию actions остаются справа.
+     Это нужно для главной панели. */
+  .dashboard-row-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: center;
+    gap: 8px;
+  }
+
+  .dashboard-mini-btn {
+    min-height: 30px;
+    padding: 6px 12px;
+    font-size: var(--type-kicker-size);
+  }
+
+  /* ===== Только для страниц списков: животные и статьи ===== */
+  body[data-dashboard-page="dashboard-animals"] .dashboard-row-card,
+  body[data-dashboard-page="dashboard-animals"] .dashboard-row-card--compact,
+  body[data-dashboard-page="dashboard-articles"] .dashboard-row-card,
+  body[data-dashboard-page="dashboard-articles"] .dashboard-row-card--compact {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  body[data-dashboard-page="dashboard-animals"] .dashboard-row-card__actions,
+  body[data-dashboard-page="dashboard-articles"] .dashboard-row-card__actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    align-self: start;
+    margin-top: 4px;
+  }
+}

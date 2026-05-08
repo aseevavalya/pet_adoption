@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Как помочь — Панель</title>
+
+  <link rel="stylesheet" href="css/dashboard-base.css" />
+  <link rel="stylesheet" href="css/dashboard-layout.css" />
+  <link rel="stylesheet" href="css/dashboard-components.css" />
+  <link rel="stylesheet" href="css/dashboard-form.css" />
+  <link rel="stylesheet" href="css/dashboard-pages.css" />
+</head>
+<body class="dashboard-body" data-dashboard-page="dashboard-page-help">
+  <div class="dashboard-shell">
+    <div id="dashboardSidebarMount"></div>
+
+    <main class="dashboard-main">
+      <div id="dashboardTopbarMount"></div>
+
+      <section class="dashboard-content">
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-toolbar">
+            <div>
+              <h2 class="dashboard-section-title">Страница «Как помочь»</h2>
+              <p class="dashboard-section-lead">
+                Здесь можно редактировать верх страницы, карточку помощи и список вариантов помощи.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <form class="dashboard-form" id="helpPageForm">
+          <!-- HERO -->
+          <article class="dashboard-card dashboard-card--padded dashboard-edit-card">
+            <div class="dashboard-edit-card__head">
+              <div>
+                <h3 class="dashboard-form-section-title">Верх страницы</h3>
+                <p class="dashboard-section-lead">
+                  Заголовок и краткое описание страницы.
+                </p>
+              </div>
+
+              <button class="dashboard-ghost-btn" type="button" data-toggle-block="helpHeroEditor">
+                Редактировать
+              </button>
+            </div>
+
+            <div class="dashboard-preview-block">
+              <div class="dashboard-preview-block__kicker">ПУТЬ ПОМОЩИ</div>
+              <div class="dashboard-preview-block__title" id="helpPreviewTitle">—</div>
+              <div class="dashboard-preview-block__lead" id="helpPreviewLead">—</div>
+            </div>
+
+            <div class="dashboard-edit-panel" id="helpHeroEditor" hidden>
+              <div class="dashboard-form-grid">
+                <label class="dashboard-field">
+                  <span>Заголовок</span>
+                  <input class="dashboard-input" type="text" name="title" />
+                </label>
+
+                <label class="dashboard-field dashboard-field--full">
+                  <span>Подзаголовок</span>
+                  <textarea class="dashboard-textarea" name="lead" rows="4"></textarea>
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <!-- DONATION CARD -->
+          <article class="dashboard-card dashboard-card--padded dashboard-edit-card">
+            <div class="dashboard-edit-card__head">
+              <div>
+                <h3 class="dashboard-form-section-title">Карточка «Поддержать»</h3>
+                <p class="dashboard-section-lead">
+                  Это первая карточка со ссылкой на помощь.
+                </p>
+              </div>
+
+              <button class="dashboard-ghost-btn" type="button" data-toggle-block="helpDonationEditor">
+                Редактировать
+              </button>
+            </div>
+
+            <div class="dashboard-preview-block dashboard-preview-block--text">
+              <div class="dashboard-preview-block__mini-title" id="helpPreviewDonationTitle">—</div>
+              <div class="dashboard-preview-block__rich" id="helpPreviewDonationDetails">—</div>
+              <div class="dashboard-preview-block__button-text" id="helpPreviewButtonText">—</div>
+            </div>
+
+            <div class="dashboard-edit-panel" id="helpDonationEditor" hidden>
+              <div class="dashboard-form-grid">
+                <label class="dashboard-field">
+                  <span>Заголовок карточки</span>
+                  <input class="dashboard-input" type="text" name="donation_title" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Текст кнопки</span>
+                  <input class="dashboard-input" type="text" name="button_text" />
+                </label>
+
+                <label class="dashboard-field dashboard-field--full">
+                  <span>Текст карточки</span>
+                  <textarea class="dashboard-textarea" name="donation_details" rows="6"></textarea>
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <!-- HELP LIST -->
+          <article class="dashboard-card dashboard-card--padded dashboard-edit-card">
+            <div class="dashboard-edit-card__head">
+              <div>
+                <h3 class="dashboard-form-section-title">Список вариантов помощи</h3>
+                <p class="dashboard-section-lead">
+                  Это содержимое блока «Как может выглядеть помощь».
+                </p>
+              </div>
+
+              <button class="dashboard-ghost-btn" type="button" data-toggle-block="helpListEditor">
+                Редактировать
+              </button>
+            </div>
+
+            <div class="dashboard-preview-block dashboard-preview-block--text">
+              <div class="dashboard-preview-block__rich" id="helpPreviewContent">—</div>
+            </div>
+
+            <div class="dashboard-edit-panel" id="helpListEditor" hidden>
+              <div class="dashboard-form-grid">
+                <label class="dashboard-field dashboard-field--full">
+                  <span>Пункты помощи (каждый с новой строки)</span>
+                  <textarea class="dashboard-textarea" name="content" rows="10"></textarea>
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <div class="dashboard-form-actions">
+            <button class="dashboard-btn" type="submit" id="helpPageSubmitBtn">
+              Сохранить
+            </button>
+          </div>
+
+          <p class="dashboard-form-status" id="helpPageFormStatus"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard-api.js"></script>
+  <script src="js/dashboard-auth.js"></script>
+  <script>
+    requireDashboardAuth();
+  </script>
+  <script src="js/dashboard-main.js"></script>
+  <script src="js/dashboard-page-help.js"></script>
+</body>
+</html>

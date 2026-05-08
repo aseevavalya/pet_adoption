@@ -1,0 +1,217 @@
+.page-articles {
+  background: transparent;
+  color: var(--text);
+}
+
+.articles-page {
+  padding-bottom: 0;
+}
+
+.articles-hero {
+  padding-bottom: 28px;
+}
+
+.articles-controls-section {
+  padding-bottom: 28px;
+}
+
+.articles-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.articles-search input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--panel-tint);
+  color: var(--text);
+  outline: none;
+  box-shadow: var(--shadow-soft);
+}
+
+.articles-search input::placeholder {
+  color: var(--muted);
+}
+
+.articles-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.category-btn {
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-tint);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.category-btn:hover {
+  background: #fffdf8;
+}
+
+.category-btn.active {
+  background: var(--accent);
+  border-color: transparent;
+  color: var(--accent-dark);
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.article-card-link {
+  display: block;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.5), var(--panel-tint));
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--shadow);
+}
+
+.article-card-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: 0 22px 42px rgba(84, 74, 48, 0.16);
+}
+
+.article-card-image {
+  position: relative;
+  margin: 18px 18px 0;
+  padding: 12px;
+  background: var(--panel-tint);
+  border-radius: 24px;
+}
+
+.article-card-image img {
+  width: 100%;
+  height: 230px;
+  border-radius: 18px;
+  object-fit: cover;
+  background:
+    radial-gradient(circle at 22% 20%, rgba(216, 202, 123, 0.24), transparent 20%),
+    linear-gradient(180deg, #faf6ee 0%, #ece4d5 100%);
+}
+
+.article-card-image::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 82px;
+  height: 24px;
+  background: rgba(216, 202, 123, 0.7);
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.tape-left::before {
+  left: 22px;
+  transform: rotate(-8deg);
+}
+
+.tape-center::before {
+  left: 50%;
+  transform: translateX(-50%) rotate(3deg);
+}
+
+.tape-right::before {
+  right: 22px;
+  transform: rotate(8deg);
+}
+
+.article-card-body {
+  padding: 20px 20px 24px;
+}
+
+.article-badge {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(182, 178, 143, 0.18);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.article-card-body h2 {
+  margin-bottom: 12px;
+  font-size: 26px;
+  line-height: 1.16;
+}
+
+.article-card-body p {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.article-readmore {
+  display: inline-block;
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+.articles-empty {
+  margin-top: 28px;
+  text-align: center;
+  color: var(--text-soft);
+}
+
+.article-detail-wrap {
+  max-width: 900px;
+}
+
+.article-detail-media {
+  margin-bottom: 2rem;
+}
+
+.article-detail-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.5), var(--panel-tint));
+  box-shadow: var(--shadow);
+}
+
+.article-detail-card p + p {
+  margin-top: 14px;
+}
+
+.article-detail-card p,
+.article-detail-card li {
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+@media (max-width: 1024px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-card-body h2 {
+    font-size: 22px;
+  }
+
+  .article-card-image img {
+    height: 210px;
+  }
+
+  .article-detail-card {
+    padding: 22px;
+  }
+}

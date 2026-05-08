@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>МЫ ЗДЕСЬ</title>
+
+  <!-- Общие стили -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Стили только главной -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="page-home">
+  <!-- Общая навигация подгружается через JS -->
+  <div id="site-nav"></div>
+
+  <!-- Якорь для возврата к началу -->
+  <span id="top" class="hidden-anchor"></span>
+
+  <main>
+    <!-- Скролл-история на главной -->
+    <section class="story-scroll" id="story-scroll" aria-label="История выбора">
+      <div class="story-scene" id="storyScene">
+        <div class="media-layer">
+          <div class="image-track" id="imageTrack">
+            <img src="img/cat_house_3.png" alt="Кошка в коробке на улице" id="storyImage">
+          </div>
+        </div>
+
+        <div class="scene-overlay"></div>
+
+        <div class="text-layer">
+          <div class="story-card" id="textBox">
+            <div class="hero-badge" id="storyBadge">Вы спешите?</div>
+            <h1 class="story-title" id="title">Остановитесь на секунду</h1>
+            <p class="story-subtitle" id="subtitle">
+              Посмотрите вниз.
+            </p>
+
+            <!-- Кнопки появляются на последнем шаге истории -->
+            <div class="choice-buttons story-buttons" id="storyButtons">
+              <a class="btn btn-primary" href="help.html">Хочу помочь</a>
+              <a class="btn btn-secondary" href="not-ignore.html">Пройти мимо</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Высота для скролл-сцены -->
+      <div class="story-spacer" id="storySpacer"></div>
+    </section>
+  </main>
+
+  <script src="js/include-nav.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
+

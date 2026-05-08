@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статьи — Панель</title>
+
+  <link rel="stylesheet" href="css/dashboard-base.css">
+  <link rel="stylesheet" href="css/dashboard-layout.css">
+  <link rel="stylesheet" href="css/dashboard-components.css">
+  <link rel="stylesheet" href="css/dashboard-articles.css">
+</head>
+<body class="dashboard-body" data-dashboard-page="dashboard-articles">
+  <div class="dashboard-shell">
+    <div id="dashboardSidebarMount"></div>
+
+    <main class="dashboard-main">
+      <div id="dashboardTopbarMount"></div>
+
+      <section class="dashboard-content">
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-toolbar">
+            <div>
+              <h2 class="dashboard-section-title">Все статьи</h2>
+            </div>
+
+            <a class="dashboard-btn" href="article-form.html">Добавить статью</a>
+          </div>
+        </article>
+
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-filters">
+            <input
+              class="dashboard-input dashboard-input--inline"
+              id="articlesSearch"
+              type="text"
+              placeholder="Поиск по заголовку или описанию"
+            >
+
+            <select class="dashboard-select" id="articlesCategoryFilter">
+              <option value="">Все категории</option>
+              <option value="adaptation">Адаптация</option>
+              <option value="care">Уход</option>
+              <option value="health">Здоровье</option>
+              <option value="behavior">Поведение</option>
+              <option value="other">Другое</option>
+            </select>
+
+            <select class="dashboard-select" id="articlesStatusFilter">
+              <option value="">Все статусы</option>
+              <option value="published">Опубликовано</option>
+              <option value="draft">Черновик</option>
+            </select>
+          </div>
+        </article>
+
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-list" id="articlesList">
+            <p class="dashboard-empty">Загружаем статьи...</p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard-api.js"></script>
+  <script src="js/dashboard-auth.js"></script>
+  <script>
+    requireDashboardAuth();
+  </script>
+  <script src="js/dashboard-main.js"></script>
+  <script src="js/dashboard-articles.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+/* Dashboard-local layer on top of shared public theme tokens. */
+:root {
+  --font-dashboard: var(--font-body);
+}

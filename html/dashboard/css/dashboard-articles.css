@@ -1,0 +1,89 @@
+/* ===== Стили списка статей в админке ===== */
+/* Здесь лежат только отличия статьи от обычной карточки:
+   плейсхолдер вместо фото и текстовые размеры для article-card. */
+
+.dashboard-row-card__image--placeholder {
+  display: grid;
+  place-items: center;
+  background: var(--panel-tint);
+  color: var(--warm-accent);
+  font-size: var(--type-section-title-size);
+  font-weight: 700;
+}
+
+.dashboard-article-title {
+  margin-bottom: 8px;
+  font-size: var(--type-card-title-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.25;
+}
+
+.dashboard-article-meta {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.dashboard-article-desc {
+  margin-top: 8px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.dashboard-article-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dashboard-article-head__main {
+  min-width: 0;
+}
+
+.dashboard-article-view-btn {
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+/* ===== Компактный вариант статьи ===== */
+/* Когда статья рендерится как compact-card, текст тоже должен стать компактнее. */
+.dashboard-row-card--compact .dashboard-article-title {
+  font-size: var(--type-body-size);
+  line-height: 1.3;
+}
+
+.dashboard-row-card--compact .dashboard-article-meta,
+.dashboard-row-card--compact .dashboard-article-desc {
+  font-size: var(--type-pill-size);
+  line-height: 1.5;
+}
+
+/* ===== Телефон ===== */
+@media (max-width: 760px) {
+  .dashboard-row-card__image--placeholder {
+    font-size: calc(var(--nav-bottom-icon-size) + 4px);
+  }
+
+  .dashboard-article-title {
+    margin-bottom: 4px;
+    font-size: var(--type-button-size);
+    line-height: 1.25;
+  }
+
+  .dashboard-article-meta,
+  .dashboard-article-desc {
+    font-size: var(--type-pill-size);
+    line-height: 1.4;
+  }
+
+  .dashboard-article-head {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .dashboard-article-view-btn {
+    padding: 6px 10px;
+    font-size: var(--nav-link-size);
+  }
+}

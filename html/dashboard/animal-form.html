@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Животное — Панель</title>
+
+  <link rel="stylesheet" href="css/dashboard-base.css">
+  <link rel="stylesheet" href="css/dashboard-layout.css">
+  <link rel="stylesheet" href="css/dashboard-components.css">
+  <link rel="stylesheet" href="css/dashboard-form.css">
+</head>
+<body class="dashboard-body" data-dashboard-page="dashboard-animal-form">
+  <div class="dashboard-shell">
+    <div id="dashboardSidebarMount"></div>
+
+    <main class="dashboard-main">
+      <div id="dashboardTopbarMount"></div>
+
+      <section class="dashboard-content">
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-toolbar">
+            <div>
+              <h2 class="dashboard-section-title" id="animalFormHeading">Добавить животное</h2>
+              <p class="dashboard-section-lead" id="animalFormLead">
+                Заполните карточку животного. Потом она будет показываться на сайте.
+              </p>
+            </div>
+
+            <a class="dashboard-ghost-btn dashboard-back-link" href="animals.html">Назад к списку</a>
+          </div>
+        </article>
+
+        <form class="dashboard-form" id="animalForm">
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Основная информация</h3>
+
+            <div class="dashboard-form-grid">
+              <label class="dashboard-field">
+                <span>Имя *</span>
+                <input class="dashboard-input" type="text" name="name" required>
+              </label>
+
+              <label class="dashboard-field">
+                <span>Slug *</span>
+                <input class="dashboard-input" type="text" name="slug" required>
+              </label>
+
+              <label class="dashboard-field">
+                <span>Тип животного *</span>
+                <select class="dashboard-select dashboard-select--full" name="animal_type" required>
+                  <option value="">Выберите тип</option>
+                  <option value="cat">Кошка</option>
+                  <option value="dog">Собака</option>
+                  <option value="other">Другое</option>
+                </select>
+              </label>
+
+              <label class="dashboard-field">
+                <span>Пол *</span>
+                <select class="dashboard-select dashboard-select--full" name="gender" required>
+                  <option value="">Выберите пол</option>
+                  <option value="male">Мальчик</option>
+                  <option value="female">Девочка</option>
+                </select>
+              </label>
+
+              <label class="dashboard-field">
+                <span>Возраст</span>
+                <input class="dashboard-input" type="text" name="age_text" placeholder="Например: 2 года">
+              </label>
+
+              <label class="dashboard-field">
+                <span>Порода</span>
+                <input class="dashboard-input" type="text" name="breed">
+              </label>
+
+              <label class="dashboard-field dashboard-field--full">
+                <span>Город</span>
+                <input class="dashboard-input" type="text" name="city">
+              </label>
+            </div>
+          </article>
+
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Фотография</h3>
+
+            <div class="dashboard-form-grid dashboard-form-grid--media-right">
+              <label class="dashboard-field">
+                <input
+                  class="dashboard-input"
+                  type="file"
+                  name="main_image"
+                  id="animalMainImage"
+                  accept="image/*"
+                >
+              </label>
+
+              <div class="dashboard-image-preview-wrap" id="animalImagePreviewWrap">
+                <div class="dashboard-image-preview-box">
+                  <div class="dashboard-image-preview-empty" id="animalImagePreviewEmpty">
+                    <span class="dashboard-image-preview-empty__icon">🐾</span>
+                    <span class="dashboard-image-preview-empty__text">
+                      Здесь появится фотография животного
+                    </span>
+                  </div>
+
+                  <img
+                    id="animalImagePreview"
+                    class="dashboard-image-preview"
+                    alt="Предпросмотр фото животного"
+                    hidden
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Описание</h3>
+
+            <div class="dashboard-form-grid dashboard-form-grid--single">
+              <label class="dashboard-field">
+                <span>Кратко</span>
+                <textarea class="dashboard-textarea" name="short_description" rows="4"></textarea>
+              </label>
+
+              <label class="dashboard-field">
+                <span>Подробно *</span>
+                <textarea class="dashboard-textarea" name="description" rows="8" required></textarea>
+              </label>
+            </div>
+          </article>
+
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Публикация и статус</h3>
+
+            <div class="dashboard-form-grid dashboard-form-grid--status-vertical">
+              <label class="dashboard-field dashboard-field--status-compact">
+                <span>Статус *</span>
+                <select class="dashboard-select dashboard-select--full" name="status" required>
+                  <option value="available">Ищет дом</option>
+                  <option value="reserved">Забронирован</option>
+                  <option value="adopted">Пристроен</option>
+                  <option value="hidden">Скрыт</option>
+                </select>
+              </label>
+
+              <label class="dashboard-checkbox dashboard-checkbox--soft">
+                <input type="checkbox" name="is_published">
+                <span>Опубликовать</span>
+              </label>
+            </div>
+          </article>
+
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Дополнительно</h3>
+
+            <div class="dashboard-form-grid dashboard-form-grid--checks">
+              <label class="dashboard-checkbox">
+                <input type="checkbox" name="vaccinated">
+                <span>Привит</span>
+              </label>
+
+              <label class="dashboard-checkbox">
+                <input type="checkbox" name="sterilized">
+                <span>Стерилизован</span>
+              </label>
+
+              <label class="dashboard-checkbox">
+                <input type="checkbox" name="good_with_kids">
+                <span>Ладит с детьми</span>
+              </label>
+
+              <label class="dashboard-checkbox">
+                <input type="checkbox" name="good_with_animals">
+                <span>Ладит с животными</span>
+              </label>
+            </div>
+          </article>
+
+          <div class="dashboard-form-actions">
+            <button class="dashboard-btn" type="submit" id="animalSubmitBtn">Сохранить</button>
+            <a class="dashboard-ghost-btn" href="animals.html">Отмена</a>
+          </div>
+
+          <p class="dashboard-form-status" id="animalFormStatus"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard-api.js"></script>
+  <script src="js/dashboard-auth.js"></script>
+  <script>
+    requireDashboardAuth();
+  </script>
+  <script src="js/dashboard-main.js"></script>
+  <script src="js/dashboard-animal-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — МЫ ЗДЕСЬ</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/contacts.css">
+</head>
+<body class="page-contacts">
+  <div id="site-nav"></div>
+  <main class="contacts-page page-shell">
+    <section class="container contacts-hero page-hero-block">
+      <div class="section-head contacts-head">
+        <span class="section-kicker">контакты</span>
+        <h1 class="section-title" id="contactsTitle">Связаться с нами</h1>
+        <p class="section-lead" id="contactsLead">По вопросам помощи, пристройства, передержки, пожертвований и сотрудничества.</p>
+      </div>
+    </section>
+
+    <section class="container contacts-layout split-grid">
+      <section class="contacts-main" aria-label="Способы связи">
+        <div class="contacts-list">
+          <a class="contact-line" id="contactVk" href="#"><span class="contact-label">VK</span><span class="contact-value">—</span></a>
+          <a class="contact-line" id="contactInstagram" href="#"><span class="contact-label">Instagram</span><span class="contact-value">—</span></a>
+          <a class="contact-line" id="contactTelegram" href="#"><span class="contact-label">Telegram</span><span class="contact-value">—</span></a>
+          <a class="contact-line" id="contactEmail" href="#"><span class="contact-label">Email</span><span class="contact-value">—</span></a>
+          <a class="contact-line" id="contactPhone" href="#"><span class="contact-label">Телефон</span><span class="contact-value">—</span></a>
+        </div>
+        <div class="illustration-placeholder contacts-visual" aria-hidden="true">
+          <div class="illustration-placeholder__inner">
+            <span class="illustration-placeholder__badge">link</span>
+            <strong class="illustration-placeholder__title">Место для коммуникации</strong>
+            <span class="illustration-placeholder__text">Если захочешь, сюда можно добавить иллюстрацию с соцсетями или дружелюбным сюжетом о связи.</span>
+          </div>
+        </div>
+      </section>
+
+      <aside class="donate-card panel-pad-lg">
+        <span class="donate-kicker">пожертвование</span>
+        <h2 class="donate-title" id="donationTitle">Поддержать проект</h2>
+        <p class="donate-text" id="donationText">Здесь можно разместить реквизиты для перевода.</p>
+        <div class="donate-box">
+          <div class="donate-row"><span class="donate-row-label">Получатель</span><span class="donate-row-value" id="donationReceiver">—</span></div>
+          <div class="donate-row"><span class="donate-row-label">Карта / IBAN</span><span class="donate-row-value" id="donationCard">—</span></div>
+          <div class="donate-row"><span class="donate-row-label">Банк / BIC</span><span class="donate-row-value" id="donationBank">—</span></div>
+          <div class="donate-row"><span class="donate-row-label">Назначение</span><span class="donate-row-value" id="donationPurpose">—</span></div>
+        </div>
+        <a class="btn btn-primary donate-btn" id="donateBtn" href="#">Пожертвовать</a>
+      </aside>
+    </section>
+  </main>
+  <script src="js/include-nav.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contacts-page.js"></script>
+</body>
+</html>
+

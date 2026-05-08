@@ -1,0 +1,132 @@
+.contacts-hero {
+  margin-bottom: 8px;
+}
+
+.contacts-main {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.contacts-list {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-line {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 22px;
+  color: var(--text);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: var(--card-blur);
+  -webkit-backdrop-filter: var(--card-blur);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-line:hover {
+  transform: translateY(-1px);
+  background: var(--card-bg-strong);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.contact-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dash-request-value);
+  text-align: right;
+}
+
+.donate-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--olive-tint);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.donate-title {
+  margin-bottom: 14px;
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.05;
+  color: var(--dash-request-value);
+}
+
+.donate-text {
+  margin-bottom: 18px;
+  color: var(--text-soft);
+  line-height: 1.72;
+}
+
+.donate-box {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid var(--card-border);
+}
+
+.donate-row {
+  display: grid;
+  gap: 4px;
+}
+
+.donate-row-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.donate-row-value {
+  color: var(--dash-request-value);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.donate-btn {
+  width: 100%;
+}
+
+.contacts-visual {
+  margin-top: 4px;
+}
+
+@media (max-width: 720px) {
+  .contacts-main,
+  .donate-card {
+    padding: var(--panel-pad-mobile);
+  }
+
+  .contact-line {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-value {
+    text-align: left;
+  }
+}

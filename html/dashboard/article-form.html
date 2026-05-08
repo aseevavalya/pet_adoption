@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статья — Панель</title>
+
+  <link rel="stylesheet" href="css/dashboard-base.css">
+  <link rel="stylesheet" href="css/dashboard-layout.css">
+  <link rel="stylesheet" href="css/dashboard-components.css">
+  <link rel="stylesheet" href="css/dashboard-form.css">
+</head>
+<body class="dashboard-body" data-dashboard-page="dashboard-article-form">
+  <div class="dashboard-shell">
+    <div id="dashboardSidebarMount"></div>
+
+    <main class="dashboard-main">
+      <div id="dashboardTopbarMount"></div>
+
+      <section class="dashboard-content">
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-toolbar">
+            <div>
+              <h2 class="dashboard-section-title" id="articleFormHeading">Добавить статью</h2>
+              <p class="dashboard-section-lead" id="articleFormLead">
+                Если ты хочешь сохранить статью как черновик, оставь поле "Опубликовать" пустым. 
+              </p>
+            </div>
+
+            <a class="dashboard-ghost-btn dashboard-back-link" href="articles.html">Назад к списку</a>
+          </div>
+        </article>
+
+        <form class="dashboard-form" id="articleForm">
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Основная информация</h3>
+
+            <div class="dashboard-form-grid">
+              <label class="dashboard-field">
+                <span>Заголовок *</span>
+                <input class="dashboard-input" type="text" name="title" required>
+              </label>
+
+              <label class="dashboard-field">
+                <span>Slug *</span>
+                <input class="dashboard-input" type="text" name="slug" required>
+              </label>
+
+              <label class="dashboard-field">
+                <span>Категория *</span>
+                <select class="dashboard-select dashboard-select--full" name="category" required>
+                  <option value="">Выберите категорию</option>
+                  <option value="adaptation">Адаптация</option>
+                  <option value="care">Уход</option>
+                  <option value="health">Здоровье</option>
+                  <option value="behavior">Поведение</option>
+                  <option value="other">Другое</option>
+                </select>
+              </label>
+
+              <label class="dashboard-field dashboard-field--full">
+                <span>Краткое описание</span>
+                <textarea class="dashboard-textarea" name="excerpt" rows="4"></textarea>
+              </label>
+            </div>
+          </article>
+
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Фотография</h3>
+            <div class="dashboard-form-grid dashboard-form-grid--media-right">
+              <label class="dashboard-field">
+                <input
+                  class="dashboard-input"
+                  type="file"
+                  name="cover_image"
+                  id="articleCoverImage"
+                  accept="image/*"
+                >
+              </label>
+
+              <div class="dashboard-image-preview-wrap" id="articleCoverPreviewWrap">
+                <div class="dashboard-image-preview-box">
+                  <div class="dashboard-image-preview-empty" id="articleCoverPreviewEmpty">
+                    <span class="dashboard-image-preview-empty__icon">📝</span>
+                    <span class="dashboard-image-preview-empty__text">
+                      Здесь появится обложка статьи
+                    </span>
+                  </div>
+
+                  <img
+                    id="articleCoverPreview"
+                    class="dashboard-image-preview"
+                    alt="Предпросмотр обложки статьи"
+                    hidden
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Содержание статьи</h3>
+
+            <div class="dashboard-form-grid">
+              <label class="dashboard-field dashboard-field--full">
+                <span>Полный текст *</span>
+                <textarea class="dashboard-textarea" name="content" id="article_content" rows="14"></textarea>
+              </label>
+            </div>
+          </article>
+
+          <article class="dashboard-card dashboard-card--padded">
+            <h3 class="dashboard-form-section-title">Публикация</h3>
+
+            <div class="dashboard-form-grid dashboard-form-grid--checks">
+              <label class="dashboard-checkbox">
+                <input type="checkbox" name="is_published">
+                <span>Опубликовать</span>
+              </label>
+            </div>
+          </article>
+
+          <div class="dashboard-form-actions">
+            <button class="dashboard-btn" type="submit" id="articleSubmitBtn">Сохранить</button>
+            <a class="dashboard-ghost-btn" href="articles.html">Отмена</a>
+          </div>
+
+          <p class="dashboard-form-status" id="articleFormStatus"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+
+  <script src="js/tinymce/tinymce.min.js"></script>
+  <script src="js/dashboard-api.js"></script>
+  <script src="js/dashboard-auth.js"></script>
+  <script>
+    requireDashboardAuth();
+  </script>
+  <script src="js/dashboard-main.js"></script>
+  <script src="js/dashboard-article-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>База знаний — МЫ ЗДЕСЬ</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/articles.css">
+</head>
+<body class="page-articles">
+  <div id="site-nav"></div>
+
+  <main class="articles-page page-shell">
+    <section class="container articles-hero page-hero-block">
+      <div class="section-head">
+        <span class="section-kicker">база знаний</span>
+        <h1 class="section-title">Полезные материалы о животных</h1>
+        <p class="section-lead">
+          Статьи про адаптацию, уход, здоровье, поведение и жизнь с питомцем.
+        </p>
+      </div>
+    </section>
+
+    <section class="articles-controls-section">
+      <div class="container">
+        <div class="filters-panel articles-filters">
+          <div class="articles-search">
+            <input
+              class="ui-input"
+              type="text"
+              id="articleSearch"
+              placeholder="Поиск по статьям..."
+              aria-label="Поиск по статьям"
+            >
+          </div>
+
+          <div class="articles-categories" id="categoryButtons">
+            <button class="ui-pill category-btn active" data-category="all" type="button">Все</button>
+            <button class="ui-pill category-btn" data-category="adaptation" type="button">Адаптация</button>
+            <button class="ui-pill category-btn" data-category="care" type="button">Уход</button>
+            <button class="ui-pill category-btn" data-category="health" type="button">Здоровье</button>
+            <button class="ui-pill category-btn" data-category="behavior" type="button">Поведение</button>
+            <button class="ui-pill category-btn" data-category="other" type="button">Другое</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="articles-list-section">
+      <div class="container">
+        <div class="articles-grid" id="articlesGrid"></div>
+        <p class="articles-empty hidden" id="noResults">По вашему запросу ничего не найдено.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/include-nav.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/articles.js"></script>
+</body>
+</html>

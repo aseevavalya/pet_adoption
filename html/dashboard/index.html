@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Панель — МЫ ЗДЕСЬ</title>
+
+  <link rel="stylesheet" href="css/dashboard-base.css">
+  <link rel="stylesheet" href="css/dashboard-layout.css">
+  <link rel="stylesheet" href="css/dashboard-components.css">
+  <link rel="stylesheet" href="css/dashboard-index.css">
+</head>
+<body class="dashboard-body" data-dashboard-page="dashboard-index">
+  <div class="dashboard-shell">
+    <div id="dashboardSidebarMount"></div>
+
+    <main class="dashboard-main">
+      <div id="dashboardTopbarMount"></div>
+
+      <section class="dashboard-content">
+        <div class="dashboard-home-top">
+          <div class="dashboard-home-stats-row">
+            <a class="dashboard-card dashboard-stat dashboard-stat--link" href="../catalog.html">
+              <span class="dashboard-stat__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" class="dashboard-icon dashboard-icon--catalog">
+                  <path fill="currentColor" d="M41.5127 33.9206c-0.825 -2.3531 -2.7478 -3.5456 -4.6041 -4.6987 -1.6153 -1.0041 -3.1406 -1.9528 -4.1381 -3.6563C30.0208 20.8472 28.5105 18 24.0058 18s-6.0197 2.8481 -8.7759 7.5647c-0.9985 1.7072 -2.5313 2.6578 -4.1485 3.6637 -1.85623 1.1541 -3.77529 2.3438 -4.60311 4.6922 -0.32218 0.8469 -0.4843 1.7462 -0.47812 2.6522 0 3.8194 3.04219 6.9272 6.41253 6.9272 3.3703 0 7.8103 -1.6997 11.6025 -1.6997 3.7922 0 8.1703 1.6997 11.5828 1.6997 3.4125 0 6.4022 -3.1078 6.4022 -6.9272 0.0026 -0.9066 -0.1627 -1.8058 -0.4875 -2.6522Z"></path>
+                  <path fill="currentColor" d="M6.75 27C9.6495 27 12 23.978 12 20.25S9.6495 13.5 6.75 13.5c-2.89949 0 -5.25 3.022 -5.25 6.75S3.85051 27 6.75 27Z"></path>
+                  <path fill="currentColor" d="M17.25 18c2.8995 0 5.25 -3.022 5.25 -6.75 0 -3.72792 -2.3505 -6.75 -5.25 -6.75S12 7.52208 12 11.25c0 3.728 2.3505 6.75 5.25 6.75Z"></path>
+                  <path fill="currentColor" d="M30.75 18c2.8995 0 5.25 -3.022 5.25 -6.75 0 -3.72792 -2.3505 -6.75 -5.25 -6.75s-5.25 3.02208 -5.25 6.75c0 3.728 2.3505 6.75 5.25 6.75Z"></path>
+                  <path fill="currentColor" d="M41.25 27c2.8995 0 5.25 -3.022 5.25 -6.75s-2.3505 -6.75 -5.25 -6.75S36 16.522 36 20.25 38.3505 27 41.25 27Z"></path>
+                </svg>
+              </span>
+              <p class="dashboard-stat__label">Животных в каталоге</p>
+              <div class="dashboard-stat__value" id="animalsCount">—</div>
+              <p class="dashboard-stat__meta">Опубликованные карточки</p>
+            </a>
+
+            <a class="dashboard-card dashboard-stat dashboard-stat--link" href="articles.html?status=draft">
+              <span class="dashboard-stat__icon" aria-hidden="true">
+                <img src="img/journal.svg" class="dashboard-icon-file dashboard-icon-file--journal" alt="">
+              </span>
+              <p class="dashboard-stat__label">Черновики статей</p>
+              <div class="dashboard-stat__value" id="draftArticlesCount">—</div>
+              <p class="dashboard-stat__meta">Ожидают публикации</p>
+            </a>
+
+            <a class="dashboard-card dashboard-stat dashboard-stat--link" href="requests.html?status=new">
+              <span class="dashboard-stat__icon dashboard-stat__icon--heart" aria-hidden="true">❤</span>
+              <p class="dashboard-stat__label">Новые заявки</p>
+              <div class="dashboard-stat__value" id="newRequestsCount">—</div>
+              <p class="dashboard-stat__meta">Требуют обработки</p>
+            </a>
+          </div>
+
+          <div class="dashboard-home-actions">
+            <a class="dashboard-btn dashboard-home-action-btn" href="animal-form.html">Добавить животное</a>
+            <a class="dashboard-btn dashboard-home-action-btn" href="article-form.html">Добавить статью</a>
+          </div>
+        </div>
+
+        <div class="dashboard-home-bottom">
+          <article class="dashboard-card dashboard-card--padded">
+            <div class="dashboard-section-head">
+              <div>
+                <h2 class="dashboard-section-title dashboard-section-title--animals">
+                  <span class="dashboard-title-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" class="dashboard-icon dashboard-icon--animals-title">
+                      <path fill="currentColor" d="M41.5127 33.9206c-0.825 -2.3531 -2.7478 -3.5456 -4.6041 -4.6987 -1.6153 -1.0041 -3.1406 -1.9528 -4.1381 -3.6563C30.0208 20.8472 28.5105 18 24.0058 18s-6.0197 2.8481 -8.7759 7.5647c-0.9985 1.7072 -2.5313 2.6578 -4.1485 3.6637 -1.85623 1.1541 -3.77529 2.3438 -4.60311 4.6922 -0.32218 0.8469 -0.4843 1.7462 -0.47812 2.6522 0 3.8194 3.04219 6.9272 6.41253 6.9272 3.3703 0 7.8103 -1.6997 11.6025 -1.6997 3.7922 0 8.1703 1.6997 11.5828 1.6997 3.4125 0 6.4022 -3.1078 6.4022 -6.9272 0.0026 -0.9066 -0.1627 -1.8058 -0.4875 -2.6522Z"></path>
+                      <path fill="currentColor" d="M6.75 27C9.6495 27 12 23.978 12 20.25S9.6495 13.5 6.75 13.5c-2.89949 0 -5.25 3.022 -5.25 6.75S3.85051 27 6.75 27Z"></path>
+                      <path fill="currentColor" d="M17.25 18c2.8995 0 5.25 -3.022 5.25 -6.75 0 -3.72792 -2.3505 -6.75 -5.25 -6.75S12 7.52208 12 11.25c0 3.728 2.3505 6.75 5.25 6.75Z"></path>
+                      <path fill="currentColor" d="M30.75 18c2.8995 0 5.25 -3.022 5.25 -6.75 0 -3.72792 -2.3505 -6.75 -5.25 -6.75s-5.25 3.02208 -5.25 6.75c0 3.728 2.3505 6.75 5.25 6.75Z"></path>
+                      <path fill="currentColor" d="M41.25 27c2.8995 0 5.25 -3.022 5.25 -6.75s-2.3505 -6.75 -5.25 -6.75S36 16.522 36 20.25 38.3505 27 41.25 27Z"></path>
+                    </svg>
+                  </span>
+                  Все животные 
+                </h2>
+                <p class="dashboard-section-lead">Последние карточки животных</p>
+              </div>
+              <a class="dashboard-ghost-btn dashboard-ghost-btn--small" href="animals.html">Открыть список</a>
+            </div>
+
+            <div class="dashboard-list" id="latestAnimals">
+              <p class="dashboard-empty">Загружаем данные...</p>
+            </div>
+          </article>
+
+          <article class="dashboard-card dashboard-card--padded">
+            <div class="dashboard-section-head">
+              <div>
+                <h2 class="dashboard-section-title">
+                  <span class="dashboard-title-icon-letter" aria-hidden="true">
+                    <img src="img/letter.svg" class="dashboard-icon-file dashboard-icon-file--letter" alt="">
+                  </span>
+                  Все заявки 
+                </h2>
+                <p class="dashboard-section-lead">Последние заявки на пристройство.</p>
+              </div>
+              <a class="dashboard-ghost-btn dashboard-ghost-btn--small" href="requests.html">Открыть список</a>
+            </div>
+
+            <div class="dashboard-list" id="latestRequests">
+              <p class="dashboard-empty">Загружаем данные...</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard-api.js"></script>
+  <script src="js/dashboard-auth.js"></script>
+  <script>
+    requireDashboardAuth();
+  </script>
+  <script src="js/dashboard-main.js"></script>
+  <script src="js/dashboard-index.js"></script>
+</body>
+</html>

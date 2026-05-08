@@ -1,0 +1,644 @@
+.deck-scene {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 8px;
+}
+
+.deck-slider {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  align-items: center;
+  gap: 14px;
+  width: min(860px, 100%);
+  padding-bottom: 4px;
+}
+
+.animal-details-section {
+  margin-top: -4px;
+}
+
+.deck-viewport {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  height: 460px;
+  overflow: hidden;
+}
+
+.deck-track {
+  position: relative;
+  width: 278px;
+  max-width: 100%;
+  height: 410px;
+}
+
+.deck-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-white-42);
+  color: var(--text);
+  font-size: 0;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+}
+
+.deck-arrow::before {
+  content: "";
+  display: block;
+  width: 31px;
+  height: 21px;
+  background: currentColor;
+  -webkit-mask: url("../img/arrow.svg") center / contain no-repeat;
+  mask: url("../img/arrow.svg") center / contain no-repeat;
+}
+
+.deck-arrow-left::before {
+  transform: rotate(180deg);
+}
+
+.deck-actions {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.deck-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 8px;
+  border-radius: 22px;
+  background: var(--panel-soft);
+  color: var(--text);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.55s ease, opacity 0.35s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.deck-card.is-active {
+  z-index: 5;
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+  pointer-events: auto;
+}
+
+.deck-card.is-prev {
+  z-index: 4;
+  opacity: 0.48;
+  transform: translateX(-120px) translateY(10px) scale(0.92) rotate(-8deg);
+}
+
+.deck-card.is-next {
+  z-index: 4;
+  opacity: 0.48;
+  transform: translateX(120px) translateY(10px) scale(0.92) rotate(8deg);
+}
+
+.deck-card.is-hidden {
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(80px) scale(0.86);
+}
+
+.empty-state {
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  color: var(--text-soft);
+}
+
+/* Карточка в колоде — только локальные размеры и типографика,
+   сам blur-эффект теперь общий в layout.css */
+
+/* Карточка в колоде — только локальная раскладка и размеры,
+   визуальный blur-стиль общий в layout.css */
+.deck-card--media {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+
+  --media-card-radius: 22px;
+  --media-card-title-size: 14px;
+  --media-card-text-size: 12px;
+  --media-card-link-size: 12px;
+  --media-card-lines: 2;
+  --media-card-lines-mobile: 2;
+  --media-card-content-pad: 12px 10px 10px;
+  --media-card-content-gap: 7px;
+}
+
+.deck-card--media .media-card__frame {
+  height: 100%;
+  min-height: 100%;
+  border-radius: 22px;
+}
+
+.deck-card--media .media-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.deck-card--media .media-card__content > * {
+  position: relative;
+  z-index: 1;
+}
+
+.deck-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.deck-card-meta-item {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(255, 252, 248, 0.16);
+  border: 1px solid rgba(255, 252, 248, 0.14);
+  color: var(--white);
+  font-size: 10px;
+  line-height: 1.1;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.deck-card-btn {
+  width: 100%;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 252, 248, 0.08);
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(92, 98, 82, 0.96) 0%,
+    rgba(71, 77, 63, 0.98) 100%
+  );
+  color: #fffaf3;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 8px 18px rgba(14, 18, 14, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.deck-card-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 12px 22px rgba(14, 18, 14, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Детальная карточка животного */
+.animal-full-card {
+  padding: 0;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.animal-full-card > .surface-panel__body {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) minmax(0, 1fr);
+  gap: 32px;
+  padding: 28px;
+  align-items: start;
+  border-radius: inherit;
+}
+
+.animal-full-aside {
+  display: grid;
+  gap: 18px;
+  align-self: start;
+}
+
+.animal-request-toggle {
+  width: 100%;
+  justify-content: center;
+}
+
+.animal-full-photo-wrap {
+  min-width: 0;
+}
+
+.animal-request-wrap {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.animal-request-wrap.hidden {
+  display: none;
+}
+
+.animal-request-wrap .adoption-request-panel {
+  margin-top: 0;
+  width: 100%;
+}
+
+.request-field-full,
+.request-form-actions {
+  grid-column: 1 / -1;
+}
+
+.animal-full-card--accent {
+  background: var(--panel-solid);
+  color: var(--text);
+  box-shadow: var(--shadow-soft);
+}
+
+.animal-full-card--accent h2,
+.animal-full-card--accent h3 {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.animal-full-card--accent p,
+.animal-full-card--accent .adoption-request-head p {
+  color: var(--text-soft);
+}
+
+.animal-full-card--accent .animal-meta span {
+  background: var(--surface-white-16);
+  color: var(--login-btn-bg);
+  border: 1px solid var(--surface-white-12);
+}
+
+.animal-full-card--accent .section-kicker {
+  background: var(--surface-white-14);
+  color: var(--dash-sidebar-text-soft);
+}
+
+.animal-full-card--accent .adoption-request-panel {
+  background: var(--surface-white-08);
+  border: 1px solid var(--surface-white-12);
+}
+
+.animal-full-card--accent .request-input,
+.animal-full-card--accent .request-textarea {
+  background: var(--surface-white-90);
+  color: var(--text);
+}
+
+.animal-full-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  max-height: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  display: block;
+}
+
+.animal-full-content {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+.animal-full-content-main {
+  display: grid;
+  gap: 18px;
+}
+
+.animal-full-content h2 {
+  font-size: clamp(22px, 2.1vw, 32px);
+  line-height: 1.04;
+  font-weight: var(--font-weight-regular);
+}
+
+.animal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.animal-meta span {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--surface-white-42);
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.animal-block p {
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.animal-block h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 1.12;
+  font-weight: 400;
+}
+
+.adoption-request-panel {
+  width: 100%;
+  max-width: none;
+  padding: 24px;
+  border-radius: 28px;
+}
+
+.adoption-request-head h3 {
+  margin: 4px 0 8px;
+}
+
+.adoption-request-head p {
+  margin: 0 0 16px;
+  color: var(--text-soft);
+}
+
+.adoption-request-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.adoption-request-form label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.request-field-full {
+  grid-column: 1 / -1;
+}
+
+.request-input,
+.request-textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-white-55);
+  color: var(--text);
+  font: inherit;
+}
+
+.request-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.request-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.request-form-status {
+  font-weight: 600;
+}
+
+.request-form-status.is-success {
+  color: var(--status-success);
+}
+
+.request-form-status.is-error {
+  color: var(--status-error);
+}
+
+@media (max-width: 900px) {
+  .animal-full-aside {
+    gap: 14px;
+  }
+
+  .animal-request-wrap {
+    grid-column: 1;
+  }
+
+  .animal-full-card > .surface-panel__body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .animal-full-photo {
+    min-height: 320px;
+  }
+
+  .deck-slider {
+    grid-template-columns: 56px minmax(0, 1fr) 56px;
+  }
+
+  .deck-track {
+    width: 320px;
+    max-width: 100%;
+    height: 490px;
+  }
+
+  .deck-card.is-prev {
+    transform: translateX(-70px) scale(0.92) rotate(-6deg);
+  }
+
+  .deck-card.is-next {
+    transform: translateX(70px) scale(0.92) rotate(6deg);
+  }
+
+  .animal-full-card {
+    grid-template-columns: 1fr;
+  }
+
+  .adoption-request-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .animal-full-aside {
+    display: contents;
+  }
+
+  .animal-full-photo-wrap {
+    order: 1;
+  }
+
+  .animal-full-content {
+    order: 2;
+  }
+
+  .animal-request-toggle {
+    order: 3;
+    width: 100%;
+  }
+
+  .animal-request-wrap {
+    order: 4;
+  }
+
+  .deck-slider {
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .deck-card {
+    padding: 8px;
+    border-radius: 22px;
+  }
+
+  .deck-card-meta {
+    gap: 5px;
+  }
+
+  .deck-card-meta-item {
+    padding: 5px 8px;
+    font-size: 10px;
+    line-height: 1.1;
+  }
+
+  .deck-card-btn {
+    min-height: 36px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .deck-viewport {
+    height: 430px;
+  }
+
+  .deck-track {
+    width: min(258px, 100%);
+    height: 382px;
+  }
+
+  .animal-details-section {
+    margin-top: -2px;
+  }
+
+  .animal-meta {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .animal-meta span {
+    padding: 6px 10px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .deck-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 0;
+  }
+
+  .deck-arrow::before {
+    width: 24px;
+    height: 16px;
+  }
+
+  .animal-full-card > .surface-panel__body {
+    padding: 14px;
+    gap: 16px;
+  }
+
+  .animal-full-content {
+    gap: 14px;
+  }
+
+  .animal-full-content h2 {
+    font-size: 18px;
+    line-height: 1.08;
+  }
+
+  .animal-block h3 {
+    font-size: 15px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .animal-block p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .adoption-request-panel {
+    margin-top: 4px;
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .adoption-request-head .section-kicker {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .adoption-request-head h3 {
+    font-size: 17px;
+    line-height: 1.15;
+    margin: 2px 0 6px;
+  }
+
+  .adoption-request-head p {
+    font-size: 14px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+
+  .adoption-request-form {
+    gap: 10px;
+  }
+
+  .adoption-request-form label {
+    gap: 6px;
+  }
+
+  .adoption-request-form label span {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .request-input,
+  .request-textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+
+  .request-textarea {
+    min-height: 110px;
+  }
+
+  .request-form-actions .btn {
+    width: 100%;
+    min-height: 46px;
+    font-size: 14px;
+  }
+}

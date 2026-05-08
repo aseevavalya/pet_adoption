@@ -1,0 +1,66 @@
+﻿<!-- Верхняя навигация сайта -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html#top" class="brand" aria-label="На главную">
+      <div class="brand-mark" aria-hidden="true">🐾</div>
+      <div class="brand-text">
+        <div class="brand-title">МЫ ЗДЕСЬ</div>
+        <div class="brand-subtitle">помощь бездомным животным</div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <a class="header-link" data-nav-link="help.html" href="help.html">Помочь</a>
+      <a class="header-link" data-nav-link="catalog.html" href="catalog.html">Найти питомца</a>
+      <a class="header-link" data-nav-link="contacts.html" href="contacts.html">Контакты</a>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <div class="burger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Затемнение под меню -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- Боковое меню -->
+<aside class="side-menu" id="sideMenu" aria-hidden="true">
+  <div class="side-menu__top">
+    <div class="side-menu__title">Навигация</div>
+    <button class="close-btn" id="closeMenuBtn" type="button" aria-label="Закрыть меню">✕</button>
+  </div>
+
+  <nav class="side-menu__nav" aria-label="Основная навигация">
+    <a class="nav-link" data-nav-link="index.html" href="index.html">
+      <span>Главная</span>
+      <small>начало истории</small>
+    </a>
+    <a class="nav-link" data-nav-link="catalog.html" href="catalog.html">
+      <span>Взять животное</span>
+    </a>
+    <a class="nav-link" data-nav-link="help.html" href="help.html">
+      <span>Как помочь</span>
+    </a>
+    <a class="nav-link" data-nav-link="not-ignore.html" href="not-ignore.html">
+      <span>Почему нельзя пройти мимо</span>
+    </a>
+    <a class="nav-link" data-nav-link="articles.html" href="articles.html">
+      <span>База знаний</span>
+      <small>материалы о животных</small>
+    </a>
+    <a class="nav-link" data-nav-link="about.html" href="about.html">
+      <span>О проекте</span>
+    </a>
+    <a class="nav-link" data-nav-link="contacts.html" href="contacts.html">
+      <span>Контакты</span>
+    </a>
+    <a class="nav-admin-login" href="login.html" aria-label="Вход для администратора">
+      <span class="nav-admin-login__icon">🔐</span>
+      <span class="nav-admin-login__text">Вход для администратора</span>
+    </a>
+  </nav>
+</aside>
+

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Контакты — Панель</title>
+
+  <link rel="stylesheet" href="css/dashboard-base.css" />
+  <link rel="stylesheet" href="css/dashboard-layout.css" />
+  <link rel="stylesheet" href="css/dashboard-components.css" />
+  <link rel="stylesheet" href="css/dashboard-form.css" />
+  <link rel="stylesheet" href="css/dashboard-pages.css" />
+</head>
+<body class="dashboard-body" data-dashboard-page="dashboard-page-contacts">
+  <div class="dashboard-shell">
+    <div id="dashboardSidebarMount"></div>
+
+    <main class="dashboard-main">
+      <div id="dashboardTopbarMount"></div>
+
+      <section class="dashboard-content">
+        <article class="dashboard-card dashboard-card--padded">
+          <div class="dashboard-toolbar">
+            <div>
+              <h2 class="dashboard-section-title">Страница «Контакты»</h2>
+              <p class="dashboard-section-lead">
+                Здесь можно редактировать верх страницы, контактные данные и блок пожертвований.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <form class="dashboard-form" id="contactsPageForm">
+          <!-- HERO -->
+          <article class="dashboard-card dashboard-card--padded dashboard-edit-card">
+            <div class="dashboard-edit-card__head">
+              <div>
+                <h3 class="dashboard-form-section-title">Верх страницы</h3>
+                <p class="dashboard-section-lead">
+                  Заголовок и краткое описание страницы контактов.
+                </p>
+              </div>
+
+              <button class="dashboard-ghost-btn" type="button" data-toggle-block="contactsHeroEditor">
+                Редактировать
+              </button>
+            </div>
+
+            <div class="dashboard-preview-block">
+              <div class="dashboard-preview-block__kicker">КОНТАКТЫ</div>
+              <div class="dashboard-preview-block__title" id="contactsPreviewTitle">—</div>
+              <div class="dashboard-preview-block__lead" id="contactsPreviewLead">—</div>
+            </div>
+
+            <div class="dashboard-edit-panel" id="contactsHeroEditor" hidden>
+              <div class="dashboard-form-grid">
+                <label class="dashboard-field">
+                  <span>Название сайта</span>
+                  <input class="dashboard-input" type="text" name="site_name" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Заголовок страницы</span>
+                  <input class="dashboard-input" type="text" name="contacts_title" />
+                </label>
+
+                <label class="dashboard-field dashboard-field--full">
+                  <span>Подзаголовок</span>
+                  <textarea class="dashboard-textarea" name="contacts_lead" rows="4"></textarea>
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <!-- CONTACTS -->
+          <article class="dashboard-card dashboard-card--padded dashboard-edit-card">
+            <div class="dashboard-edit-card__head">
+              <div>
+                <h3 class="dashboard-form-section-title">Контактные данные</h3>
+                <p class="dashboard-section-lead">
+                  Телефон, email и ссылки на соцсети.
+                </p>
+              </div>
+
+              <button class="dashboard-ghost-btn" type="button" data-toggle-block="contactsDataEditor">
+                Редактировать
+              </button>
+            </div>
+
+            <div class="dashboard-preview-block dashboard-preview-block--text">
+              <div id="contactsPreviewData">—</div>
+            </div>
+
+            <div class="dashboard-edit-panel" id="contactsDataEditor" hidden>
+              <div class="dashboard-form-grid">
+                <label class="dashboard-field">
+                  <span>Телефон</span>
+                  <input class="dashboard-input" type="text" name="phone" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Email</span>
+                  <input class="dashboard-input" type="email" name="email" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Telegram</span>
+                  <input class="dashboard-input" type="url" name="telegram" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>VK</span>
+                  <input class="dashboard-input" type="url" name="vk" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Instagram</span>
+                  <input class="dashboard-input" type="url" name="instagram" />
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <!-- DONATION -->
+          <article class="dashboard-card dashboard-card--padded dashboard-edit-card">
+            <div class="dashboard-edit-card__head">
+              <div>
+                <h3 class="dashboard-form-section-title">Блок пожертвований</h3>
+                <p class="dashboard-section-lead">
+                  Реквизиты и текст блока поддержки.
+                </p>
+              </div>
+
+              <button class="dashboard-ghost-btn" type="button" data-toggle-block="contactsDonationEditor">
+                Редактировать
+              </button>
+            </div>
+
+            <div class="dashboard-preview-block dashboard-preview-block--text">
+              <div class="dashboard-preview-block__mini-title" id="contactsPreviewDonationTitle">—</div>
+              <div class="dashboard-preview-block__rich" id="contactsPreviewDonationText">—</div>
+              <div id="contactsPreviewDonationDetails">—</div>
+            </div>
+
+            <div class="dashboard-edit-panel" id="contactsDonationEditor" hidden>
+              <div class="dashboard-form-grid">
+                <label class="dashboard-field">
+                  <span>Заголовок блока</span>
+                  <input class="dashboard-input" type="text" name="donation_title" />
+                </label>
+
+                <label class="dashboard-field dashboard-field--full">
+                  <span>Текст блока</span>
+                  <textarea class="dashboard-textarea" name="donation_text" rows="4"></textarea>
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Получатель</span>
+                  <input class="dashboard-input" type="text" name="donation_receiver" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Карта / IBAN</span>
+                  <input class="dashboard-input" type="text" name="donation_card" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Банк / BIC</span>
+                  <input class="dashboard-input" type="text" name="donation_bank" />
+                </label>
+
+                <label class="dashboard-field">
+                  <span>Назначение</span>
+                  <input class="dashboard-input" type="text" name="donation_purpose" />
+                </label>
+
+                <label class="dashboard-field dashboard-field--full">
+                  <span>Ссылка на кнопку пожертвования</span>
+                  <input class="dashboard-input" type="url" name="donation_link" />
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <div class="dashboard-form-actions">
+            <button class="dashboard-btn" type="submit" id="contactsPageSubmitBtn">
+              Сохранить
+            </button>
+          </div>
+
+          <p class="dashboard-form-status" id="contactsPageFormStatus"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard-api.js"></script>
+  <script src="js/dashboard-auth.js"></script>
+  <script>
+    requireDashboardAuth();
+  </script>
+  <script src="js/dashboard-main.js"></script>
+  <script src="js/dashboard-page-contacts.js"></script>
+</body>
+</html>
