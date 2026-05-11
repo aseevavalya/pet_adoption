@@ -400,7 +400,8 @@
 }
 
 .request-input,
-.request-textarea {
+.request-textarea,
+.request-select {
   width: 100%;
   padding: 16px 18px;
   border: 1px solid var(--line);
@@ -413,6 +414,28 @@
 .request-textarea {
   min-height: 130px;
   resize: vertical;
+}
+
+.request-textarea--small {
+  min-height: 86px;
+}
+
+.request-select {
+  appearance: auto;
+}
+
+.request-form-note {
+  grid-column: 1 / -1;
+  margin: 2px 0 0;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+.request-form-note a {
+  color: var(--login-btn-bg);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .request-form-actions {
@@ -433,6 +456,12 @@
 
 .request-form-status.is-error {
   color: var(--status-error);
+}
+
+@media (min-width: 760px) {
+  .adoption-request-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -626,7 +655,8 @@
   }
 
   .request-input,
-  .request-textarea {
+  .request-textarea,
+  .request-select {
     padding: 12px 14px;
     font-size: 14px;
     border-radius: 14px;

@@ -8,6 +8,25 @@ function dashboardHumanRequestStatus(value) {
   return value || "Без статуса";
 }
 
+function dashboardHumanYesNo(value) {
+  if (value === "yes") return "Да";
+  if (value === "no") return "Нет";
+  return "Не указано";
+}
+
+function dashboardHumanHomeType(value) {
+  if (value === "house") return "Дом";
+  if (value === "apartment") return "Квартира";
+  return "Не указано";
+}
+
+function dashboardHumanAttitude(value) {
+  if (value === "positive") return "Положительно";
+  if (value === "negative") return "Отрицательно";
+  if (value === "neutral") return "Все равно";
+  return "Не указано";
+}
+
 function formatDashboardDate(value) {
   if (!value) return "Дата неизвестна";
 
@@ -43,6 +62,17 @@ async function initDashboardRequests() {
         ${request.phone || ""}
         ${request.email || ""}
         ${request.city || ""}
+        ${request.social_accounts || ""}
+        ${request.home_type || ""}
+        ${request.ventilation_safety || ""}
+        ${request.window_screens || ""}
+        ${request.vaccination_attitude || ""}
+        ${request.self_walk_attitude || ""}
+        ${request.sterilization_attitude || ""}
+        ${request.treatment_budget || ""}
+        ${request.return_reasons || ""}
+        ${request.home_updates || ""}
+        ${request.home_delivery || ""}
         ${request.message || ""}
         ${request.animal_name || ""}
         ${request.admin_comment || ""}
@@ -69,6 +99,7 @@ async function initDashboardRequests() {
                 <span>${request.phone || "Телефон не указан"}</span>
                 ${request.email ? `<span>${request.email}</span>` : ""}
                 ${request.city ? `<span>${request.city}</span>` : ""}
+                ${request.birth_date ? `<span>Дата рождения: ${request.birth_date}</span>` : ""}
                 ${request.animal_name ? `
                   <div class="dashboard-request-animal-wrap">
                     <span class="dashboard-request-animal-label">Животное:</span>
@@ -82,6 +113,53 @@ async function initDashboardRequests() {
                     </a>
                   </div>
                 ` : `<span class="dashboard-request-animal">Животное не выбрано</span>`}
+              </div>
+
+              <div class="dashboard-request-details-grid">
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Соцсети</span>
+                  <span class="dashboard-request-detail__value">${request.social_accounts || "Не указано"}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Дом питомца</span>
+                  <span class="dashboard-request-detail__value">${dashboardHumanHomeType(request.home_type)}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Вертикальное проветривание</span>
+                  <span class="dashboard-request-detail__value">${dashboardHumanYesNo(request.ventilation_safety)}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Сетки на окнах</span>
+                  <span class="dashboard-request-detail__value">${request.window_screens || "Не указано"}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Вакцинация</span>
+                  <span class="dashboard-request-detail__value">${dashboardHumanAttitude(request.vaccination_attitude)}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Самовыгул</span>
+                  <span class="dashboard-request-detail__value">${dashboardHumanAttitude(request.self_walk_attitude)}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Стерилизация/кастрация</span>
+                  <span class="dashboard-request-detail__value">${dashboardHumanAttitude(request.sterilization_attitude)}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Бюджет на лечение</span>
+                  <span class="dashboard-request-detail__value">${request.treatment_budget || "Не указано"}</span>
+                </div>
+                <div class="dashboard-request-detail dashboard-request-detail--wide">
+                  <span class="dashboard-request-detail__label">Причины возврата</span>
+                  <span class="dashboard-request-detail__value">${request.return_reasons || "Не указано"}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Фото и видео-приветы</span>
+                  <span class="dashboard-request-detail__value">${dashboardHumanYesNo(request.home_updates)}</span>
+                </div>
+                <div class="dashboard-request-detail">
+                  <span class="dashboard-request-detail__label">Доставка в новый дом</span>
+                  <span class="dashboard-request-detail__value">${dashboardHumanYesNo(request.home_delivery)}</span>
+                </div>
               </div>
 
               <div class="dashboard-request-message-box">

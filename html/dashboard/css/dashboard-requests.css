@@ -153,3 +153,45 @@
   letter-spacing: 0.04em;
 }
 
+.dashboard-request-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+
+.dashboard-request-detail {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-cream-soft);
+}
+
+.dashboard-request-detail--wide {
+  grid-column: 1 / -1;
+}
+
+.dashboard-request-detail__label {
+  color: var(--muted);
+  font-size: var(--type-kicker-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dashboard-request-detail__value {
+  color: var(--text);
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 680px) {
+  .dashboard-request-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

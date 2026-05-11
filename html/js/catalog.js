@@ -168,15 +168,20 @@ function renderRequestForm(animal) {
       <div class="adoption-request-head">
         <span class="section-kicker">заявка</span>
         <h3>Хочу познакомиться с ${animal.name}</h3>
-        <p>Оставьте контакты, и с вами свяжутся, чтобы обсудить пристройство.</p>
+        <p>Расскажите о себе и условиях, в которых будет жить питомец. Это помогает нам бережно выбирать новый дом.</p>
       </div>
 
       <form class="adoption-request-form" id="adoptionRequestForm">
         <input type="hidden" name="animal" value="${animal.id}">
 
         <label>
-          <span>Имя *</span>
+          <span>ФИО *</span>
           <input class="request-input" type="text" name="full_name" required>
+        </label>
+
+        <label>
+          <span>Дата рождения *</span>
+          <input class="request-input" type="date" name="birth_date" required>
         </label>
 
         <label>
@@ -195,9 +200,99 @@ function renderRequestForm(animal) {
         </label>
 
         <label class="request-field-full">
-          <span>Сообщение</span>
-          <textarea class="request-textarea" name="message" placeholder="Например: расскажите немного о себе, есть ли опыт с животными, в каких условиях будет жить питомец."></textarea>
+          <span>Аккаунты в соцсетях</span>
+          <textarea class="request-textarea request-textarea--small" name="social_accounts" placeholder="Ссылки на VK, Telegram, Instagram или другие страницы"></textarea>
         </label>
+
+        <label>
+          <span>Где будет проживать животное? *</span>
+          <select class="request-input request-select" name="home_type" required>
+            <option value="">Выберите вариант</option>
+            <option value="house">Дом</option>
+            <option value="apartment">Квартира</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Знаете ли вы об опасности вертикального проветривания? *</span>
+          <select class="request-input request-select" name="ventilation_safety" required>
+            <option value="">Выберите вариант</option>
+            <option value="yes">Да</option>
+            <option value="no">Нет</option>
+          </select>
+        </label>
+
+        <label class="request-field-full">
+          <span>Есть ли у вас сетки на окнах? Готовы ли установить, если нет? *</span>
+          <textarea class="request-textarea request-textarea--small" name="window_screens" required></textarea>
+        </label>
+
+        <label>
+          <span>Как вы относитесь к вакцинации? *</span>
+          <select class="request-input request-select" name="vaccination_attitude" required>
+            <option value="">Выберите вариант</option>
+            <option value="positive">Положительно</option>
+            <option value="negative">Отрицательно</option>
+            <option value="neutral">Все равно</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Как вы относитесь к самовыгулу? *</span>
+          <select class="request-input request-select" name="self_walk_attitude" required>
+            <option value="">Выберите вариант</option>
+            <option value="positive">Положительно</option>
+            <option value="negative">Отрицательно</option>
+            <option value="neutral">Все равно</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Как вы относитесь к стерилизации/кастрации? *</span>
+          <select class="request-input request-select" name="sterilization_attitude" required>
+            <option value="">Выберите вариант</option>
+            <option value="positive">Положительно</option>
+            <option value="negative">Отрицательно</option>
+            <option value="neutral">Все равно</option>
+          </select>
+        </label>
+
+        <label class="request-field-full">
+          <span>Если животное заболеет, есть ли в семейном бюджете средства на лечение? *</span>
+          <textarea class="request-textarea request-textarea--small" name="treatment_budget" required></textarea>
+        </label>
+
+        <label class="request-field-full">
+          <span>Какие причины могут заставить вас вернуть животное? *</span>
+          <textarea class="request-textarea request-textarea--small" name="return_reasons" required></textarea>
+        </label>
+
+        <label>
+          <span>Готовы ли вы высылать фото и видео-приветы из дома? *</span>
+          <select class="request-input request-select" name="home_updates" required>
+            <option value="">Выберите вариант</option>
+            <option value="yes">Да</option>
+            <option value="no">Нет</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Всех своих питомцев мы сами привозим в новый дом. Подходит ли вам это? *</span>
+          <select class="request-input request-select" name="home_delivery" required>
+            <option value="">Выберите вариант</option>
+            <option value="yes">Да</option>
+            <option value="no">Нет</option>
+          </select>
+        </label>
+
+        <label class="request-field-full">
+          <span>Сообщение</span>
+          <textarea class="request-textarea" name="message" placeholder="Можно добавить любые важные детали или вопросы."></textarea>
+        </label>
+
+        <p class="request-form-note">
+          Почему анкета такая большая? <a href="why-adoption-questionnaire.html">Прочитайте тут.</a>
+        </p>
 
         <div class="request-form-actions">
           <button class="btn btn-primary" type="submit">Отправить заявку</button>

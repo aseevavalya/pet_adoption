@@ -16,7 +16,18 @@ class AdoptionRequestCreateAPIView(generics.CreateAPIView):
 class DashboardAdoptionRequestViewSet(viewsets.ModelViewSet):
     queryset = AdoptionRequest.objects.select_related("animal").all().order_by("-created_at")
     filter_backends = [filters.SearchFilter]
-    search_fields = ["full_name", "phone", "email", "city", "message", "animal__name"]
+    search_fields = [
+        "full_name",
+        "phone",
+        "email",
+        "city",
+        "social_accounts",
+        "window_screens",
+        "treatment_budget",
+        "return_reasons",
+        "message",
+        "animal__name",
+    ]
     permission_classes = [IsAdminUser]
 
     def get_serializer_class(self):
